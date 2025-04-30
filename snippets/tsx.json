@@ -1,1 +1,158 @@
-
+{
+  "Functional Component": {
+    "prefix": "rfc",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "  ${2:propName}: ${3:type};",
+      "}",
+      "",
+      "const ${1:ComponentName}: React.FC<${1:ComponentName}Props> = ({ ${2:propName} }) => {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  );",
+      "};",
+      "",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "TS: React Functional Component"
+  },
+  "useState Hook": {
+    "prefix": "us",
+    "body": [
+      "const [${1:state}, set${1:state}] = React.useState<${3:type}>(${4:initialValue});"
+    ],
+    "description": "useState Hook with TypeScript"
+  },
+  "useEffect Hook run once at mount": {
+    "prefix": "uem",
+    "body": ["React.useEffect(() => {", "  $0", "}, []);"],
+    "description": "useEffect Hook runs once at mount"
+  },
+  "useEffect Hook runs on every render": {
+    "prefix": "uer",
+    "body": ["React.useEffect(() => {", "  $0", "});"],
+    "description": "useEffect Hook runs on every render"
+  },
+  "useEffect Hook Cleanup": {
+    "prefix": "cleanup",
+    "body": ["return () => {", " $0", "}"],
+    "description": "useEffect Hook Cleanup"
+  },
+  "function": {
+    "prefix": "func",
+    "body": [
+      "function ${1:name}(${2:params}: ${3:type}): ${4:returnType} {",
+      "  $0",
+      "}"
+    ],
+    "description": "Function"
+  },
+  "useMemo": {
+    "prefix": "useMemo",
+    "body": ["React.useMemo(() => {", "  $0", "}, [${1:deps}]);"],
+    "description": "useMemo Hook"
+  },
+  "useCallback": {
+    "prefix": "useCallback",
+    "body": ["React.useCallback(() => {", "  $0", "}, [${1:deps}]);"],
+    "description": "useCallback Hook"
+  },
+  "useRef": {
+    "prefix": "useRef",
+    "body": ["const ${1:ref} = React.useRef<${2:type}>(${3:initialValue});"],
+    "description": "useRef Hook"
+  },
+  "useImperativeHandle": {
+    "prefix": "uih",
+    "body": [
+      "React.useImperativeHandle(ref, () => ({",
+      "  $0",
+      "}), [${1:deps}]);"
+    ],
+    "description": "useImperativeHandle Hook"
+  },
+  "useLayoutEffect": {
+    "prefix": "useLayoutEffect",
+    "body": ["React.useLayoutEffect(() => {", "  $0", "});"],
+    "description": "useLayoutEffect Hook"
+  },
+  "useDebugValue": {
+    "prefix": "useDebugValue",
+    "body": ["React.useDebugValue(${1:value});"],
+    "description": "useDebugValue Hook"
+  },
+  "useContext": {
+    "prefix": "useContext",
+    "body": ["React.useContext(${1:Context});"],
+    "description": "useContext Hook"
+  },
+  "useReducer": {
+    "prefix": "useReducer",
+    "body": [
+      "const [state, dispatch] = React.useReducer(${1:reducer}, ${2:initialState});"
+    ],
+    "description": "useReducer Hook"
+  },
+  "Interface": {
+    "prefix": "intr",
+    "body": ["interface ${1:Name} {", "${2:prop}: ${3:type}", "  $0", "}"],
+    "description": "Interface"
+  },
+  "Type": {
+    "prefix": "type",
+    "body": ["type ${1:Name} = ${2:type};"],
+    "description": "Type"
+  },
+  "Enum": {
+    "prefix": "enum",
+    "body": ["enum ${1:Name} {", "  $0", "}"],
+    "description": "Enum"
+  },
+  "ForwardRef Component": {
+    "prefix": "frc",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "  ${2:label}?: string;",
+      "}",
+      "",
+      "const ${1:ComponentName} = React.forwardRef<${4:HTMLDivElement}, ${1:ComponentName}Props>((props, ref) => {",
+      "  const { ${2:label} } = props;",
+      "",
+      "  return (",
+      "    <div ref={ref}>",
+      "      {${2:label}}",
+      "    </div>",
+      "  );",
+      "});",
+      "",
+      "${1:ComponentName}.displayName = '${1:ComponentName}';",
+      "export default ${1:ComponentName};"
+    ],
+    "description": "ForwardRef component with props"
+  },
+  "Custom Hook Template": {
+    "prefix": "hk",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "function use${1:Custom}(initialValue: ${2:type}) {",
+      "  const [state, setState] = React.useState<${2:type}>(initialValue);",
+      "",
+      "  const update = (value: ${2:type}) => {",
+      "    setState(value);",
+      "  };",
+      "",
+      "  return { state, update };",
+      "}",
+      "",
+      "export default use${1:Custom};"
+    ],
+    "description": "Custom hook boilerplate"
+  }
+}
