@@ -1,1 +1,8 @@
-
+id = "react-typescript-snippets"
+name = "React TS Snippets"
+version = "0.1.0"
+schema_version = 1
+authors = ["Vishnu Roshan"]
+description =  "A collection of useful React + TypeScript snippets to speed up your development."
+repository = "https://github.com/vishnuroshan/zed-react-ts-snippets"
+snippets = "./snippets/tsx.json"
