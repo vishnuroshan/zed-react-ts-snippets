@@ -1,0 +1,23 @@
+{
+    "Typed Fetch Function": {
+      "prefix": "fetchfn",
+      "body": [
+        "export async function fetch${1:Data}(): Promise<${2:Type}> {",
+        "  const response = await fetch('${3:/api/endpoint}');",
+        "  if (!response.ok) throw new Error('Failed to fetch');",
+        "  return response.json();",
+        "}"
+      ],
+      "description": "Typed fetch function with error handling"
+    },
+    "Record Type": {
+      "prefix": "record",
+      "body": [
+        "export const ${1:record}: Record<${2:string}, ${3:number}> = {",
+        "  ${4:key}: ${5:value},",
+        "};"
+      ],
+      "description": "Record utility type"
+    }
+  }
+  
