@@ -1,5 +1,5 @@
 {
-  "Functional Component": {
+  "Functional Component (const)": {
     "prefix": "rfc",
     "body": [
       "import * as React from 'react';",
@@ -17,6 +17,25 @@
       "};",
       "",
       "export default ${1:ComponentName};"
+    ],
+    "description": "TS: React Functional Component"
+  },
+  "Functional Component (function)": {
+    "prefix": "rff",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "interface ${1:ComponentName}Props {",
+      "  ${2:propName}: ${3:type};",
+      "}",
+      "",
+      "export default function ${1:ComponentName}({ ${2:propName} }: ${1:ComponentName}Props) {",
+      "  return (",
+      "    <div>",
+      "      $0",
+      "    </div>",
+      "  );",
+      "}"
     ],
     "description": "TS: React Functional Component"
   },
