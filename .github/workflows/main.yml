@@ -1,0 +1,27 @@
+            - name: bump-zed-extension
+  # You may pin to the exact commit or the version.
+  # uses: huacnlee/zed-extension-action@6a168731f1d994905eeb552b3b42b0cb6c4d12e6
+  uses: huacnlee/zed-extension-action@v1.0.0
+  with:
+    # The name of the Zed Extension (defaults to lower-cased repository name)
+    extension-name: # optional
+    # The path to the Zed Extension in zed/extensions repo (defaults to `extensions/<extension-name>`)
+    extension-path: # optional
+    # The git tag name to bump the formula to (defaults to the currently pushed tag)
+    tag-name: # optional
+    # The git commit message template to use when updating the formula
+    commit-message: # optional, default is {{extensionName}} {{version}}
+
+Release notes:
+
+https://github.com/{{owner}}/{{repo}}/releases/tag/v{{version}}
+
+> Created by [zed-extension-action](https://github.com/huacnlee/zed-extension-action).
+
+    # Set to a boolean value to either force or prohibit making a pull request to zed/extensions
+    create-pullrequest: # optional
+    # The repository where the extension should be updated
+    zed-extensions: # optional, default is zed-industries/extensions
+    # An existing fork of the homebrew-tap repository where the edit should be pushed to (defaults to creating or reusing a personal fork)
+    push-to: # optional
+          
