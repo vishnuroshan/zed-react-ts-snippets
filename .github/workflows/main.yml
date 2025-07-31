@@ -7,6 +7,7 @@ jobs:
     name: Release Zed Extension
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v4
       - uses: huacnlee/zed-extension-action@v1
         with:
           extension-name: react-typescript-snippets
