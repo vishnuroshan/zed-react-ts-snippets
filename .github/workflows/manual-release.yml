@@ -57,7 +57,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add themes/catppuccin-blur.json extension.toml
+          git add .
           git commit -m "chore: prepare release ${{ steps.version.outputs.new_version }}"
 
       - name: Setup Git state
