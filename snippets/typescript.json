@@ -1,23 +1,109 @@
 {
-    "Typed Fetch Function": {
-      "prefix": "fetchfn",
-      "body": [
-        "export async function fetch${1:Data}(): Promise<${2:Type}> {",
-        "  const response = await fetch('${3:/api/endpoint}');",
-        "  if (!response.ok) throw new Error('Failed to fetch');",
-        "  return response.json();",
-        "}"
-      ],
-      "description": "Typed fetch function with error handling"
-    },
-    "Record Type": {
-      "prefix": "record",
-      "body": [
-        "export const ${1:record}: Record<${2:string}, ${3:number}> = {",
-        "  ${4:key}: ${5:value},",
-        "};"
-      ],
-      "description": "Record utility type"
-    }
+  "Typed Fetch Function": {
+    "prefix": "tsfetch",
+    "body": [
+      "export async function fetch${1:Data}(): Promise<${2:Type}> {",
+      "  const response = await fetch('${3:/api/endpoint}');",
+      "  if (!response.ok) throw new Error('Failed to fetch');",
+      "  return response.json();",
+      "}"
+    ],
+    "description": "Typed fetch function with error handling"
+  },
+  "Record Type": {
+    "prefix": "tsrcd",
+    "body": [
+      "export const ${1:record}: Record<${2:string}, ${3:number}> = {",
+      "  ${4:key}: ${5:value},",
+      "};"
+    ],
+    "description": "Record utility type"
+  },
+  "New Type Alias": {
+    "prefix": "tst",
+    "body": ["type ${1:TypeName} = {", "  ${2:key}: ${3:type};", "};"],
+    "description": "Create a new type alias"
+  },
+  "New Interface": {
+    "prefix": "tsi",
+    "body": ["interface ${1:InterfaceName} {", "  ${2:key}: ${3:type};", "}"],
+    "description": "Create a new interface"
+  },
+
+  "Function Declaration": {
+    "prefix": "tsfn",
+    "body": ["function ${1:fnName}(${2:args}): ${3:void} {", "  $0", "}"],
+    "description": "Function boilerplate"
+  },
+
+  "Arrow Function": {
+    "prefix": "tsafn",
+    "body": ["const ${1:fnName} = (${2:args}): ${3:void} => {", "  $0", "};"],
+    "description": "Arrow function boilerplate"
+  },
+
+  "Try/Catch": {
+    "prefix": "tstc",
+    "body": [
+      "try {",
+      "  $0",
+      "} catch (err: unknown) {",
+      "  if (err instanceof Error) {",
+      "    console.error(err.message);",
+      "  }",
+      "}"
+    ],
+    "description": "try/catch block"
+  },
+
+  "Class with Constructor": {
+    "prefix": "tscls",
+    "body": [
+      "class ${1:ClassName} {",
+      "  constructor(${2:args}) {",
+      "    $0",
+      "  }",
+      "}"
+    ],
+    "description": "Class with constructor"
+  },
+
+  "Module Export": {
+    "prefix": "tsxprt",
+    "body": ["export {", "  $0", "};"],
+    "description": "Export members"
+  },
+
+  "Import Statement": {
+    "prefix": "tsimprt",
+    "body": ["import { ${1:thing} } from '${2:module}';"],
+    "description": "Import from a module"
+  },
+
+  "Generic Service Class Template": {
+    "prefix": "tsserv",
+    "body": [
+      "class ${1:ServiceName}Service {",
+      "  constructor(private readonly ${2:dep}: ${3:Dependency}) {}",
+      "",
+      "  async execute(${4:input}: ${5:InputType}): Promise<${6:OutputType}> {",
+      "    try {",
+      "      $0",
+      "    } catch (err) {",
+      "      throw new Error('Service execution failed');",
+      "    }",
+      "  }",
+      "}"
+    ],
+    "description": "Boilerplate for a service class"
+  },
+  "Type Guard Function": {
+    "prefix": "tgf",
+    "body": [
+      "function is${1:Type}(value: unknown): value is ${1:Type} {",
+      "  return typeof value === '${2:string}';",
+      "}"
+    ],
+    "description": "Type guard for runtime type checking"
   }
-  
+}
