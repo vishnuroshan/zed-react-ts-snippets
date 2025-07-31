@@ -122,7 +122,7 @@
     "description": "Interface"
   },
   "Type": {
-    "prefix": "type",
+    "prefix": "typ",
     "body": ["type ${1:Name} = ${2:type};"],
     "description": "Type"
   },
