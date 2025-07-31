@@ -1,6 +1,6 @@
 id = "react-typescript-snippets"
 name = "React Typescript Snippets"
-version = "0.1.0"
+version = "0.1.1"
 schema_version = 1
 authors = ["Vishnu Roshan"]
 description =  "A collection of useful React + TypeScript snippets to speed up your development."
