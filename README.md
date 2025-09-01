@@ -48,6 +48,7 @@ Start typing the snippet prefix (e.g., `rfc`) in a TSX file and press `Tab` to e
 | `rff`                   | React Functional Component (function) |
 | `frc`                   | ForwardRef Component with props       |
 | `hk`                    | Custom Hook Template                  |
+| `rctx`                  | React Context with Provider and hook  |
 | **React Hooks**         |                                       |
 | `us`                    | useState Hook with TypeScript         |
 | `uem`                   | useEffect Hook runs once at mount     |

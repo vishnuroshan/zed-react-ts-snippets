@@ -173,5 +173,39 @@
       "export default use${1:Custom};"
     ],
     "description": "Custom hook boilerplate"
+  },
+  "React Context (generic)": {
+  "prefix": "rctx",
+  "body": [
+    "import * as React from 'react';",
+    "",
+    "export interface ${1:ContextName}Value {",
+    "  ${2:state}: ${3:string};",
+    "  ${4:setState}: React.Dispatch<React.SetStateAction<${3:string}>>;",
+    "}",
+    "",
+    "export const ${1:ContextName}Context = React.createContext<${1:ContextName}Value | null>(null);",
+    "",
+    "export function ${1:ContextName}Provider({ children, initial }: { children: React.ReactNode; initial?: ${3:string} }) {",
+    "  const [${2:state}, ${4:setState}] = React.useState<${3:string}>(initial as ${3:string});",
+    "  const value = React.useMemo(() => ({ ${2:state}, ${4:setState} }), [${2:state}]);",
+    "  return (",
+    "    <${1:ContextName}Context.Provider value={value}>",
+    "      {children}",
+    "    </${1:ContextName}Context.Provider>",
+    "  );",
+    "}",
+    "",
+    "export function ${5:use}${1:ContextName}() {",
+    "  const ctx = React.useContext(${1:ContextName}Context);",
+    "  if (!ctx) throw new Error('${5:use}${1:ContextName} must be used within a ${1:ContextName}Provider');",
+    "  return ctx;",
+    "}",
+    "",
+    "// Example usage:",
+    "// <${1:ContextName}Provider initial={${6:/* initial value */} as ${3:string}}>...</${1:ContextName}Provider>",
+    "// const { ${2:state}, ${4:setState} } = ${5:use}${1:ContextName}();"
+  ],
+  "description": "TS: Generic React Context with Provider and hook"
   }
 }
