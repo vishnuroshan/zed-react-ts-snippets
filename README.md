@@ -1,4 +1,5 @@
 # React TypeScript Snippets for Zed IDE
+![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fvishnuroshan%2Fzed-react-ts-snippets%2Fraw%2Fmain%2Fdownloads.json&query=%24.downloads&label=Zed%20Downloads)
 
 A comprehensive collection of React and TypeScript snippets for the [Zed IDE](https://zed.dev) to improve your development speed and productivity.
 
