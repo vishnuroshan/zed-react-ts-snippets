@@ -22,7 +22,7 @@ jobs:
       - name: Extract downloads count
         run: |
           # Extract number (e.g., "2,341 downloads") from HTML
-          DOWNLOADS=$(grep -oE '[0-9,]+ downloads' page.html | head -1 | grep -oE '[0-9,]+')
+          DOWNLOADS=$(grep -oP 'Downloads: \K[0-9,]+' page.html) || DOWNLOADS="0"
           echo "{\"downloads\": \"$DOWNLOADS\"}" > downloads.json
           cat downloads.json
 
