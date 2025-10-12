@@ -1,0 +1,35 @@
+name: Update Zed Extension Downloads
+
+on:
+  schedule:
+    - cron: "0 * * * *" # Runs hourly
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: sudo apt-get install -y jq curl
+
+      - name: Fetch Zed page
+        run: |
+          curl -s https://zed.dev/extensions/react-typescript-snippets -o page.html
+
+      - name: Extract downloads count
+        run: |
+          # Extract number (e.g., "2,341 downloads") from HTML
+          DOWNLOADS=$(grep -oE '[0-9,]+ downloads' page.html | head -1 | grep -oE '[0-9,]+')
+          echo "{\"downloads\": \"$DOWNLOADS\"}" > downloads.json
+          cat downloads.json
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add downloads.json
+          git commit -m "Update downloads count" || echo "No changes"
+          git push
