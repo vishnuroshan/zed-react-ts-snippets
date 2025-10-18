@@ -47,6 +47,9 @@ Start typing the snippet prefix (e.g., `rfc`) in a TSX file and press `Tab` to e
 | **React Components**    |                                       |
 | `rfc`                   | React Functional Component (const)    |
 | `rff`                   | React Functional Component (function) |
+| `rfc-i`                 | React Function Component with interface |
+| `rfc-children`          | React Function Component with children prop |
+| `rfc-ne`                | React Function Component with named export |
 | `frc`                   | ForwardRef Component with props       |
 | `hk`                    | Custom Hook Template                  |
 | `rctx`                  | React Context with Provider and hook  |
@@ -102,6 +105,66 @@ const ComponentName: React.FC<ComponentNameProps> = ({ propName }) => {
 };
 
 export default ComponentName;
+```
+
+### React Function Component with Interface
+
+Type `rfc-i` and press Tab:
+
+```tsx
+interface ComponentNameProps {
+  propName: type;
+}
+
+const ComponentName = ({ propName }: ComponentNameProps): JSX.Element => {
+  return (
+    <div>
+      
+    </div>
+  );
+};
+
+export default ComponentName;
+```
+
+### React Function Component with Children
+
+Type `rfc-children` and press Tab:
+
+```tsx
+interface ComponentNameProps {
+  propName: type;
+  children?: React.ReactNode;
+}
+
+const ComponentName = ({ propName, children }: ComponentNameProps): JSX.Element => {
+  return (
+    <div>
+      {children}
+      
+    </div>
+  );
+};
+
+export default ComponentName;
+```
+
+### React Function Component with Named Export
+
+Type `rfc-ne` and press Tab:
+
+```tsx
+interface ComponentNameProps {
+  propName: type;
+}
+
+export const ComponentName = ({ propName }: ComponentNameProps): JSX.Element => {
+  return (
+    <div>
+      
+    </div>
+  );
+};
 ```
 
 ---
