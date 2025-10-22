@@ -1,0 +1,25 @@
+{
+    "name": "zed-react-ts-snippets",
+    "version": "1.0.0",
+    "description": "A collection of useful React + TypeScript snippets for Zed editor",
+    "type": "module",
+    "scripts": {
+        "validate": "node .github/scripts/validate-snippets.js",
+        "check-docs": "node .github/scripts/check-doc-coverage.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/vishnuroshan/zed-react-ts-snippets.git"
+    },
+    "keywords": [
+        "zed",
+        "snippets",
+        "react",
+        "typescript",
+        "editor",
+        "extension"
+    ],
+    "author": "Vishnu Roshan",
+    "license": "MIT",
+    "devDependencies": {}
+}
