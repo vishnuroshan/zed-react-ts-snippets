@@ -1,0 +1,20 @@
+name: PR Checks
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+
+      - name: Validate snippet JSON
+        run: node .github/scripts/validate-snippets.js
+
+      - name: Verify documentation coverage
+        run: node .github/scripts/check-doc-coverage.js
