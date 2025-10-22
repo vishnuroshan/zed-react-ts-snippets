@@ -48,17 +48,29 @@
   },
   "useEffect Hook run once at mount": {
     "prefix": "uem",
-    "body": ["React.useEffect(() => {", "  $0", "}, []);"],
+    "body": [
+      "React.useEffect(() => {",
+      "  $0",
+      "}, []);"
+    ],
     "description": "useEffect Hook runs once at mount"
   },
   "useEffect Hook runs on every render": {
     "prefix": "uer",
-    "body": ["React.useEffect(() => {", "  $0", "});"],
+    "body": [
+      "React.useEffect(() => {",
+      "  $0",
+      "});"
+    ],
     "description": "useEffect Hook runs on every render"
   },
   "useEffect Hook Cleanup": {
     "prefix": "cleanup",
-    "body": ["return () => {", " $0", "}"],
+    "body": [
+      "return () => {",
+      " $0",
+      "}"
+    ],
     "description": "useEffect Hook Cleanup"
   },
   "function": {
@@ -72,17 +84,27 @@
   },
   "useMemo": {
     "prefix": "useMemo",
-    "body": ["React.useMemo(() => {", "  $0", "}, [${1:deps}]);"],
+    "body": [
+      "React.useMemo(() => {",
+      "  $0",
+      "}, [${1:deps}]);"
+    ],
     "description": "useMemo Hook"
   },
   "useCallback": {
     "prefix": "useCallback",
-    "body": ["React.useCallback(() => {", "  $0", "}, [${1:deps}]);"],
+    "body": [
+      "React.useCallback(() => {",
+      "  $0",
+      "}, [${1:deps}]);"
+    ],
     "description": "useCallback Hook"
   },
   "useRef": {
     "prefix": "useRef",
-    "body": ["const ${1:ref} = React.useRef<${2:type}>(${3:initialValue});"],
+    "body": [
+      "const ${1:ref} = React.useRef<${2:type}>(${3:initialValue});"
+    ],
     "description": "useRef Hook"
   },
   "useImperativeHandle": {
@@ -96,17 +118,25 @@
   },
   "useLayoutEffect": {
     "prefix": "useLayoutEffect",
-    "body": ["React.useLayoutEffect(() => {", "  $0", "});"],
+    "body": [
+      "React.useLayoutEffect(() => {",
+      "  $0",
+      "});"
+    ],
     "description": "useLayoutEffect Hook"
   },
   "useDebugValue": {
     "prefix": "useDebugValue",
-    "body": ["React.useDebugValue(${1:value});"],
+    "body": [
+      "React.useDebugValue(${1:value});"
+    ],
     "description": "useDebugValue Hook"
   },
   "useContext": {
     "prefix": "useContext",
-    "body": ["React.useContext(${1:Context});"],
+    "body": [
+      "React.useContext(${1:Context});"
+    ],
     "description": "useContext Hook"
   },
   "useReducer": {
@@ -118,17 +148,28 @@
   },
   "Interface": {
     "prefix": "intr",
-    "body": ["interface ${1:Name} {", "${2:prop}: ${3:type}", "  $0", "}"],
+    "body": [
+      "interface ${1:Name} {",
+      "${2:prop}: ${3:type}",
+      "  $0",
+      "}"
+    ],
     "description": "Interface"
   },
   "Type": {
     "prefix": "typ",
-    "body": ["type ${1:Name} = ${2:type};"],
+    "body": [
+      "type ${1:Name} = ${2:type};"
+    ],
     "description": "Type"
   },
   "Enum": {
     "prefix": "enum",
-    "body": ["enum ${1:Name} {", "  $0", "}"],
+    "body": [
+      "enum ${1:Name} {",
+      "  $0",
+      "}"
+    ],
     "description": "Enum"
   },
   "ForwardRef Component": {
@@ -175,37 +216,37 @@
     "description": "Custom hook boilerplate"
   },
   "React Context (generic)": {
-  "prefix": "rctx",
-  "body": [
-    "import * as React from 'react';",
-    "",
-    "export interface ${1:ContextName}Value {",
-    "  ${2:state}: ${3:string};",
-    "  ${4:setState}: React.Dispatch<React.SetStateAction<${3:string}>>;",
-    "}",
-    "",
-    "export const ${1:ContextName}Context = React.createContext<${1:ContextName}Value | null>(null);",
-    "",
-    "export function ${1:ContextName}Provider({ children, initial }: { children: React.ReactNode; initial?: ${3:string} }) {",
-    "  const [${2:state}, ${4:setState}] = React.useState<${3:string}>(initial as ${3:string});",
-    "  const value = React.useMemo(() => ({ ${2:state}, ${4:setState} }), [${2:state}]);",
-    "  return (",
-    "    <${1:ContextName}Context.Provider value={value}>",
-    "      {children}",
-    "    </${1:ContextName}Context.Provider>",
-    "  );",
-    "}",
-    "",
-    "export function ${5:use}${1:ContextName}() {",
-    "  const ctx = React.useContext(${1:ContextName}Context);",
-    "  if (!ctx) throw new Error('${5:use}${1:ContextName} must be used within a ${1:ContextName}Provider');",
-    "  return ctx;",
-    "}",
-    "",
-    "// Example usage:",
-    "// <${1:ContextName}Provider initial={${6:/* initial value */} as ${3:string}}>...</${1:ContextName}Provider>",
-    "// const { ${2:state}, ${4:setState} } = ${5:use}${1:ContextName}();"
-  ],
-  "description": "TS: Generic React Context with Provider and hook"
+    "prefix": "rctx",
+    "body": [
+      "import * as React from 'react';",
+      "",
+      "export interface ${1:ContextName}Value {",
+      "  ${2:state}: ${3:string};",
+      "  ${4:setState}: React.Dispatch<React.SetStateAction<${3:string}>>;",
+      "}",
+      "",
+      "export const ${1:ContextName}Context = React.createContext<${1:ContextName}Value | null>(null);",
+      "",
+      "export function ${1:ContextName}Provider({ children, initial }: { children: React.ReactNode; initial?: ${3:string} }) {",
+      "  const [${2:state}, ${4:setState}] = React.useState<${3:string}>(initial as ${3:string});",
+      "  const value = React.useMemo(() => ({ ${2:state}, ${4:setState} }), [${2:state}]);",
+      "  return (",
+      "    <${1:ContextName}Context.Provider value={value}>",
+      "      {children}",
+      "    </${1:ContextName}Context.Provider>",
+      "  );",
+      "}",
+      "",
+      "export function ${5:use}${1:ContextName}() {",
+      "  const ctx = React.useContext(${1:ContextName}Context);",
+      "  if (!ctx) throw new Error('${5:use}${1:ContextName} must be used within a ${1:ContextName}Provider');",
+      "  return ctx;",
+      "}",
+      "",
+      "// Example usage:",
+      "// <${1:ContextName}Provider initial={${6:/* initial value */} as ${3:string}}>...</${1:ContextName}Provider>",
+      "// const { ${2:state}, ${4:setState} } = ${5:use}${1:ContextName}();"
+    ],
+    "description": "TS: Generic React Context with Provider and hook"
   }
 }
