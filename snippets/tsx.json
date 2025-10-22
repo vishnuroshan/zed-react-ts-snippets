@@ -207,23 +207,5 @@
     "// const { ${2:state}, ${4:setState} } = ${5:use}${1:ContextName}();"
   ],
   "description": "TS: Generic React Context with Provider and hook"
-  },
-  "test": {
-    "prefix": "test",
-    "body": [
-      "import React from 'react';",
-      "import { render, screen } from '@testing-library/react';",
-      "import '@testing-library/jest-dom/extend-expect';",
-      "import ${1:ComponentName} from './${1:ComponentName}';",
-      "",
-      "describe('<${1:ComponentName} />', () => {",
-      "  test('it should mount', () => {",
-      "    render(<${1:ComponentName} ${2:props} />);",
-      "    const ${3:element} = screen.getByTestId('${4:test-id}');",
-      "    expect(${3:element}).toBeInTheDocument();",
-      "  });",
-      "});"
-    ],
-    "description": "Basic test for a React component using Testing Library"
   }
 }
