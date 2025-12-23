@@ -8,12 +8,13 @@ A comprehensive collection of React and TypeScript snippets for the [Zed IDE](ht
 This extension provides a comprehensive set of snippets for React and TypeScript development, including:
 
 - React functional components with TypeScript
-- React hooks (useState, useEffect, useCallback, etc.)
+- React hooks (useState, useEffect, useCallback, etc.) - **Now available in both `.tsx` and `.ts` files!**
 - TypeScript types, interfaces, and type guards
 - Function and class declarations
 - Import/export statements
 - Error handling patterns
 - Custom hooks and advanced patterns
+- Tree-shakeable named imports (no more `React.` prefixes!)
 - And much more!
 
 ## Installation
@@ -37,12 +38,20 @@ git clone https://github.com/vishnuroshan/zed-react-ts-snippets.git
 4. Select the folder you cloned
 
 ## Usage
+or TypeScript file and press `Tab` to expand the snippet.
 
+### File Support
+
+- **`.tsx` files**: All snippets available (components, hooks, types, etc.)
+- **`.ts` files**: React hooks and TypeScript utility snippets available
+  - Perfect for custom hooks (`.hook.ts` files)
+  - Ideal for separating logic from components
+  - All hook snippets work without JSX syntax
 Start typing the snippet prefix (e.g., `rfc`) in a TSX file and press `Tab` to expand the snippet.
 
 ## Available Snippets
 
-| Prefix                  | Description                           |
+| Prefix          (`.tsx` and `.ts`)    | Description                           |
 | ----------------------- | ------------------------------------- |
 | **React Components**    |                                       |
 | `rfc`                   | React Functional Component (const)    |
@@ -83,21 +92,13 @@ Start typing the snippet prefix (e.g., `rfc`) in a TSX file and press `Tab` to e
 | **Utilities**           |                                       |
 | `tsfetch`               | Typed Fetch Function                  |
 | `tstc`                  | Try/Catch block                       |
-
-## Examples
-
-### React Functional Component
-
-Type `rfc` and press Tab:
-
-```tsx
-import * as React from "react";
+type { FC } from 'react';
 
 interface ComponentNameProps {
   propName: type;
 }
 
-const ComponentName: React.FC<ComponentNameProps> = ({ propName }) => {
+const ComponentName: FC<ComponentNameProps> = ({ propName }) => {
   return <div></div>;
 };
 
@@ -111,8 +112,28 @@ export default ComponentName;
 Type `us` and press Tab:
 
 ```tsx
-const [state, setState] = React.useState<type>(initialValue);
+const [state, setState] = useState<type>(initialValue);
 ```
+
+**Now works in `.ts` files too!** Perfect for custom hooks:
+
+```typescript
+// useCounter.hook.ts
+import { useState } from 'react';
+
+export function useCounter(initialValue: number) {
+  const [count, setCount] = useState<number>(initialValue); // Type 'us' + Tab
+  // ... rest of hook logic
+}
+```
+
+---
+
+### useEffect Hook
+
+Type `uem` and press Tab:
+
+```tsx
 
 ---
 
