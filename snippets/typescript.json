@@ -105,5 +105,122 @@
       "}"
     ],
     "description": "Type guard for runtime type checking"
+  },
+  "useState Hook": {
+    "prefix": "us",
+    "body": [
+      "const [${1:state}, set${1:state}] = useState<${3:type}>(${4:initialValue});"
+    ],
+    "description": "useState Hook with TypeScript"
+  },
+  "useEffect Hook run once at mount": {
+    "prefix": "uem",
+    "body": [
+      "useEffect(() => {",
+      "  $0",
+      "}, []);"
+    ],
+    "description": "useEffect Hook runs once at mount"
+  },
+  "useEffect Hook runs on every render": {
+    "prefix": "uer",
+    "body": [
+      "useEffect(() => {",
+      "  $0",
+      "});"
+    ],
+    "description": "useEffect Hook runs on every render"
+  },
+  "useEffect Hook Cleanup": {
+    "prefix": "cleanup",
+    "body": [
+      "return () => {",
+      " $0",
+      "}"
+    ],
+    "description": "useEffect Hook Cleanup"
+  },
+  "useMemo": {
+    "prefix": "useMemo",
+    "body": [
+      "useMemo(() => {",
+      "  $0",
+      "}, [${1:deps}]);"
+    ],
+    "description": "useMemo Hook"
+  },
+  "useCallback": {
+    "prefix": "useCallback",
+    "body": [
+      "useCallback(() => {",
+      "  $0",
+      "}, [${1:deps}]);"
+    ],
+    "description": "useCallback Hook"
+  },
+  "useRef": {
+    "prefix": "useRef",
+    "body": [
+      "const ${1:ref} = useRef<${2:type}>(${3:initialValue});"
+    ],
+    "description": "useRef Hook"
+  },
+  "useImperativeHandle": {
+    "prefix": "uih",
+    "body": [
+      "useImperativeHandle(ref, () => ({",
+      "  $0",
+      "}), [${1:deps}]);"
+    ],
+    "description": "useImperativeHandle Hook"
+  },
+  "useLayoutEffect": {
+    "prefix": "useLayoutEffect",
+    "body": [
+      "useLayoutEffect(() => {",
+      "  $0",
+      "});"
+    ],
+    "description": "useLayoutEffect Hook"
+  },
+  "useDebugValue": {
+    "prefix": "useDebugValue",
+    "body": [
+      "useDebugValue(${1:value});"
+    ],
+    "description": "useDebugValue Hook"
+  },
+  "useContext": {
+    "prefix": "useContext",
+    "body": [
+      "useContext(${1:Context});"
+    ],
+    "description": "useContext Hook"
+  },
+  "useReducer": {
+    "prefix": "useReducer",
+    "body": [
+      "const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState});"
+    ],
+    "description": "useReducer Hook"
+  },
+  "Custom Hook Template": {
+    "prefix": "hk",
+    "body": [
+      "import { useState } from 'react';",
+      "",
+      "function use${1:Custom}(initialValue: ${2:type}) {",
+      "  const [state, setState] = useState<${2:type}>(initialValue);",
+      "",
+      "  const update = (value: ${2:type}) => {",
+      "    setState(value);",
+      "  };",
+      "",
+      "  return { state, update };",
+      "}",
+      "",
+      "export default use${1:Custom};"
+    ],
+    "description": "Custom hook boilerplate"
   }
 }

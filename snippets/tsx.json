@@ -2,13 +2,13 @@
   "Functional Component (const)": {
     "prefix": "rfc",
     "body": [
-      "import * as React from 'react';",
+      "${4:import type { FC } from 'react';}",
       "${4:",
       "interface ${1:ComponentName}Props {",
       "  ${2:propName}: ${3:type};",
       "\\}",
       "}",
-      "const ${1:ComponentName}${4:: React.FC<${1:ComponentName}Props>} = (${4:{ ${2:propName} \\}}) => {",
+      "const ${1:ComponentName}${4:: FC<${1:ComponentName}Props>} = (${4:{ ${2:propName} \\}}) => {",
       "  return (",
       "    <div>",
       "      $0",
@@ -23,7 +23,6 @@
   "Functional Component (function)": {
     "prefix": "rff",
     "body": [
-      "import * as React from 'react';",
       "${4:",
       "interface ${1:ComponentName}Props {",
       "  ${2:propName}: ${3:type};",
@@ -42,14 +41,14 @@
   "useState Hook": {
     "prefix": "us",
     "body": [
-      "const [${1:state}, set${1:state}] = React.useState<${3:type}>(${4:initialValue});"
+      "const [${1:state}, set${1:state}] = useState<${3:type}>(${4:initialValue});"
     ],
     "description": "useState Hook with TypeScript"
   },
   "useEffect Hook run once at mount": {
     "prefix": "uem",
     "body": [
-      "React.useEffect(() => {",
+      "useEffect(() => {",
       "  $0",
       "}, []);"
     ],
@@ -58,7 +57,7 @@
   "useEffect Hook runs on every render": {
     "prefix": "uer",
     "body": [
-      "React.useEffect(() => {",
+      "useEffect(() => {",
       "  $0",
       "});"
     ],
@@ -85,7 +84,7 @@
   "useMemo": {
     "prefix": "useMemo",
     "body": [
-      "React.useMemo(() => {",
+      "useMemo(() => {",
       "  $0",
       "}, [${1:deps}]);"
     ],
@@ -94,7 +93,7 @@
   "useCallback": {
     "prefix": "useCallback",
     "body": [
-      "React.useCallback(() => {",
+      "useCallback(() => {",
       "  $0",
       "}, [${1:deps}]);"
     ],
@@ -103,14 +102,14 @@
   "useRef": {
     "prefix": "useRef",
     "body": [
-      "const ${1:ref} = React.useRef<${2:type}>(${3:initialValue});"
+      "const ${1:ref} = useRef<${2:type}>(${3:initialValue});"
     ],
     "description": "useRef Hook"
   },
   "useImperativeHandle": {
     "prefix": "uih",
     "body": [
-      "React.useImperativeHandle(ref, () => ({",
+      "useImperativeHandle(ref, () => ({",
       "  $0",
       "}), [${1:deps}]);"
     ],
@@ -119,7 +118,7 @@
   "useLayoutEffect": {
     "prefix": "useLayoutEffect",
     "body": [
-      "React.useLayoutEffect(() => {",
+      "useLayoutEffect(() => {",
       "  $0",
       "});"
     ],
@@ -128,21 +127,21 @@
   "useDebugValue": {
     "prefix": "useDebugValue",
     "body": [
-      "React.useDebugValue(${1:value});"
+      "useDebugValue(${1:value});"
     ],
     "description": "useDebugValue Hook"
   },
   "useContext": {
     "prefix": "useContext",
     "body": [
-      "React.useContext(${1:Context});"
+      "useContext(${1:Context});"
     ],
     "description": "useContext Hook"
   },
   "useReducer": {
     "prefix": "useReducer",
     "body": [
-      "const [state, dispatch] = React.useReducer(${1:reducer}, ${2:initialState});"
+      "const [state, dispatch] = useReducer(${1:reducer}, ${2:initialState});"
     ],
     "description": "useReducer Hook"
   },
@@ -175,13 +174,13 @@
   "ForwardRef Component": {
     "prefix": "frc",
     "body": [
-      "import * as React from 'react';",
+      "import { forwardRef } from 'react';",
       "",
       "interface ${1:ComponentName}Props {",
       "  ${2:label}?: string;",
       "}",
       "",
-      "const ${1:ComponentName} = React.forwardRef<${4:HTMLDivElement}, ${1:ComponentName}Props>((props, ref) => {",
+      "const ${1:ComponentName} = forwardRef<${4:HTMLDivElement}, ${1:ComponentName}Props>((props, ref) => {",
       "  const { ${2:label} } = props;",
       "",
       "  return (",
@@ -199,10 +198,10 @@
   "Custom Hook Template": {
     "prefix": "hk",
     "body": [
-      "import * as React from 'react';",
+      "import { useState } from 'react';",
       "",
       "function use${1:Custom}(initialValue: ${2:type}) {",
-      "  const [state, setState] = React.useState<${2:type}>(initialValue);",
+      "  const [state, setState] = useState<${2:type}>(initialValue);",
       "",
       "  const update = (value: ${2:type}) => {",
       "    setState(value);",
@@ -218,18 +217,18 @@
   "React Context (generic)": {
     "prefix": "rctx",
     "body": [
-      "import * as React from 'react';",
+      "import { createContext, useState, useMemo, useContext, type ReactNode, type Dispatch, type SetStateAction } from 'react';",
       "",
       "export interface ${1:ContextName}Value {",
       "  ${2:state}: ${3:string};",
-      "  ${4:setState}: React.Dispatch<React.SetStateAction<${3:string}>>;",
+      "  ${4:setState}: Dispatch<SetStateAction<${3:string}>>;",
       "}",
       "",
-      "export const ${1:ContextName}Context = React.createContext<${1:ContextName}Value | null>(null);",
+      "export const ${1:ContextName}Context = createContext<${1:ContextName}Value | null>(null);",
       "",
-      "export function ${1:ContextName}Provider({ children, initial }: { children: React.ReactNode; initial?: ${3:string} }) {",
-      "  const [${2:state}, ${4:setState}] = React.useState<${3:string}>(initial as ${3:string});",
-      "  const value = React.useMemo(() => ({ ${2:state}, ${4:setState} }), [${2:state}]);",
+      "export function ${1:ContextName}Provider({ children, initial }: { children: ReactNode; initial?: ${3:string} }) {",
+      "  const [${2:state}, ${4:setState}] = useState<${3:string}>(initial as ${3:string});",
+      "  const value = useMemo(() => ({ ${2:state}, ${4:setState} }), [${2:state}]);",
       "  return (",
       "    <${1:ContextName}Context.Provider value={value}>",
       "      {children}",
@@ -238,7 +237,7 @@
       "}",
       "",
       "export function ${5:use}${1:ContextName}() {",
-      "  const ctx = React.useContext(${1:ContextName}Context);",
+      "  const ctx = useContext(${1:ContextName}Context);",
       "  if (!ctx) throw new Error('${5:use}${1:ContextName} must be used within a ${1:ContextName}Provider');",
       "  return ctx;",
       "}",
