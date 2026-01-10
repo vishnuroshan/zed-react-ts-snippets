@@ -2,7 +2,7 @@ name: Update Zed Extension Downloads
 
 on:
   schedule:
-    - cron: "0 * * * *" # Runs hourly
+    - cron: "0 0 * * *" # Runs daily at midnight UTC
   workflow_dispatch:
 
 jobs:
