@@ -96,6 +96,9 @@ Start typing the snippet prefix (e.g., `rfc`) in a TSX file and press `Tab` to e
 | **Utilities**           |                                       |
 | `tsfetch`               | Typed Fetch Function                  |
 | `tstc`                  | Try/Catch block                       |
+
+
+```typescript
 type { FC } from 'react';
 
 interface ComponentNameProps {
