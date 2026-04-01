@@ -2,7 +2,7 @@
   "Functional Component (const)": {
     "prefix": "rfc",
     "body": [
-      "${4:import type { FC } from 'react';}",
+      "${4:import type { FC \\} from 'react';}",
       "${4:",
       "interface ${1:ComponentName}Props {",
       "  ${2:propName}: ${3:type};",
@@ -47,29 +47,17 @@
   },
   "useEffect Hook run once at mount": {
     "prefix": "uem",
-    "body": [
-      "useEffect(() => {",
-      "  $0",
-      "}, []);"
-    ],
+    "body": ["useEffect(() => {", "  $0", "}, []);"],
     "description": "useEffect Hook runs once at mount"
   },
   "useEffect Hook runs on every render": {
     "prefix": "uer",
-    "body": [
-      "useEffect(() => {",
-      "  $0",
-      "});"
-    ],
+    "body": ["useEffect(() => {", "  $0", "});"],
     "description": "useEffect Hook runs on every render"
   },
   "useEffect Hook Cleanup": {
     "prefix": "cleanup",
-    "body": [
-      "return () => {",
-      " $0",
-      "}"
-    ],
+    "body": ["return () => {", " $0", "}"],
     "description": "useEffect Hook Cleanup"
   },
   "function": {
@@ -83,59 +71,37 @@
   },
   "useMemo": {
     "prefix": "useMemo",
-    "body": [
-      "useMemo(() => {",
-      "  $0",
-      "}, [${1:deps}]);"
-    ],
+    "body": ["useMemo(() => {", "  $0", "}, [${1:deps}]);"],
     "description": "useMemo Hook"
   },
   "useCallback": {
     "prefix": "useCallback",
-    "body": [
-      "useCallback(() => {",
-      "  $0",
-      "}, [${1:deps}]);"
-    ],
+    "body": ["useCallback(() => {", "  $0", "}, [${1:deps}]);"],
     "description": "useCallback Hook"
   },
   "useRef": {
     "prefix": "useRef",
-    "body": [
-      "const ${1:ref} = useRef<${2:type}>(${3:initialValue});"
-    ],
+    "body": ["const ${1:ref} = useRef<${2:type}>(${3:initialValue});"],
     "description": "useRef Hook"
   },
   "useImperativeHandle": {
     "prefix": "uih",
-    "body": [
-      "useImperativeHandle(ref, () => ({",
-      "  $0",
-      "}), [${1:deps}]);"
-    ],
+    "body": ["useImperativeHandle(ref, () => ({", "  $0", "}), [${1:deps}]);"],
     "description": "useImperativeHandle Hook"
   },
   "useLayoutEffect": {
     "prefix": "useLayoutEffect",
-    "body": [
-      "useLayoutEffect(() => {",
-      "  $0",
-      "});"
-    ],
+    "body": ["useLayoutEffect(() => {", "  $0", "});"],
     "description": "useLayoutEffect Hook"
   },
   "useDebugValue": {
     "prefix": "useDebugValue",
-    "body": [
-      "useDebugValue(${1:value});"
-    ],
+    "body": ["useDebugValue(${1:value});"],
     "description": "useDebugValue Hook"
   },
   "useContext": {
     "prefix": "useContext",
-    "body": [
-      "useContext(${1:Context});"
-    ],
+    "body": ["useContext(${1:Context});"],
     "description": "useContext Hook"
   },
   "useReducer": {
@@ -147,28 +113,17 @@
   },
   "Interface": {
     "prefix": "intr",
-    "body": [
-      "interface ${1:Name} {",
-      "${2:prop}: ${3:type}",
-      "  $0",
-      "}"
-    ],
+    "body": ["interface ${1:Name} {", "${2:prop}: ${3:type}", "  $0", "}"],
     "description": "Interface"
   },
   "Type": {
     "prefix": "typ",
-    "body": [
-      "type ${1:Name} = ${2:type};"
-    ],
+    "body": ["type ${1:Name} = ${2:type};"],
     "description": "Type"
   },
   "Enum": {
     "prefix": "enum",
-    "body": [
-      "enum ${1:Name} {",
-      "  $0",
-      "}"
-    ],
+    "body": ["enum ${1:Name} {", "  $0", "}"],
     "description": "Enum"
   },
   "ForwardRef Component": {
