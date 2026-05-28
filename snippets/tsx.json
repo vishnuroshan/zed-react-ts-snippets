@@ -2,13 +2,11 @@
   "Functional Component (const)": {
     "prefix": "rfc",
     "body": [
-      "${4:import type { FC } from 'react';}",
-      "${4:",
       "interface ${1:ComponentName}Props {",
       "  ${2:propName}: ${3:type};",
-      "\\}",
       "}",
-      "const ${1:ComponentName}${4:: FC<${1:ComponentName}Props>} = (${4:{ ${2:propName} \\}}) => {",
+      "",
+      "const ${1:ComponentName} = ({ ${2:propName} }: ${1:ComponentName}Props) => {",
       "  return (",
       "    <div>",
       "      $0",
@@ -23,12 +21,11 @@
   "Functional Component (function)": {
     "prefix": "rff",
     "body": [
-      "${4:",
       "interface ${1:ComponentName}Props {",
       "  ${2:propName}: ${3:type};",
-      "\\}",
       "}",
-      "export default function ${1:ComponentName}(${4:{ ${2:propName} \\}: ${1:ComponentName}Props}) {",
+      "",
+      "export default function ${1:ComponentName}({ ${2:propName} }: ${1:ComponentName}Props) {",
       "  return (",
       "    <div>",
       "      $0",
@@ -41,7 +38,7 @@
   "useState Hook": {
     "prefix": "us",
     "body": [
-      "const [${1:state}, set${1:state}] = useState<${3:type}>(${4:initialValue});"
+      "const [${1:state}, set${1:state}] = useState<${2:type}>(${3:initialValue});"
     ],
     "description": "useState Hook with TypeScript"
   },
@@ -149,7 +146,7 @@
     "prefix": "intr",
     "body": [
       "interface ${1:Name} {",
-      "${2:prop}: ${3:type}",
+      "  ${2:prop}: ${3:type};",
       "  $0",
       "}"
     ],
