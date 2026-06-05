@@ -2,7 +2,7 @@
   "Functional Component (const)": {
     "prefix": "rfc",
     "body": [
-      "${4:import type { FC } from 'react';}",
+      "${4:import type { FC \\} from 'react';}",
       "${4:",
       "interface ${1:ComponentName}Props {",
       "  ${2:propName}: ${3:type};",
