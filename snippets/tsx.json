@@ -247,5 +247,30 @@
       "// const { ${2:state}, ${4:setState} } = ${5:use}${1:ContextName}();"
     ],
     "description": "TS: Generic React Context with Provider and hook"
+  },
+  "useId": {
+    "prefix": "useId",
+    "body": [
+      "const ${1:id} = useId();"
+    ],
+    "description": "useId Hook — stable unique ID for accessibility"
+  },
+  "useTransition": {
+    "prefix": "useTransition",
+    "body": [
+      "const [isPending, startTransition] = useTransition();",
+      "",
+      "startTransition(() => {",
+      "  $0",
+      "});"
+    ],
+    "description": "useTransition Hook — non-blocking state update"
+  },
+  "useDeferredValue": {
+    "prefix": "useDeferredValue",
+    "body": [
+      "const ${1:deferred} = useDeferredValue(${2:value});"
+    ],
+    "description": "useDeferredValue Hook — defer re-rendering for a value"
   }
 }
